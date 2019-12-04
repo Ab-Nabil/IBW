@@ -37,8 +37,9 @@ public class MainActivity extends AppCompatActivity {
        Men: IBW [kg] = (height[cm] - 100) - ((height[cm] - 100) × 10%)
         */
         if (male.isChecked()){
-            double IBW =(h-100)-((h-100)*10/100);
-            Result.setText("IBW: "+(int)IBW+"kg");
+            double  IBW =(h-100)-((h-100)*10/100);
+            //Math.ceil(IBW);
+            Result.setText("IBW: "+(int)(IBW)+"kg");
             if (IBW>w){
                 Advice.setText("You Need to get more "+(int)(IBW-w)+"kg to reach IBW");
             }
@@ -52,12 +53,12 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (female.isChecked()){
             double IBW =(h-100)-((h-100)*15/100);
-            Result.setText("IBW: "+(int)IBW+"kg");
+            Result.setText("IBW: "+(int)(IBW)+"kg");
             if (IBW>w){
                 Advice.setText("You Need to get more "+(int)(IBW-w)+"kg to reach IBW");
             }
             else if (IBW<w){
-                Advice.setText("You Need to lose more "+(int)(w-IBW)+"kg to reach IBW");
+                Advice.setText("You Need to lose more "+(int)Math.ceil(w-IBW)+"kg to reach IBW");
             }
             else{
                 Advice.setText("Your Weight is IBW");
